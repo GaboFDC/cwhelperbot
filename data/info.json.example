@@ -1,0 +1,9 @@
+{
+  "token":"<super_secret_bot_token>",
+  "host":"<url_of_webhook>",
+  "port":443,
+  "log":"1",
+  "admin_cid":"<admin_cid>",
+  "ssl_cert":"path/to/webhook_cert.pem",
+  "ssl_priv":"path/to/webhook_pkey.pem"
+}
