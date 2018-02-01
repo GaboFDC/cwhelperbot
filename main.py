@@ -29,11 +29,9 @@ def webhook():
 bot.remove_webhook()
 
 # Set webhook
-bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
-                certificate=open(WEBHOOK_SSL_CERT, 'r'))
+bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
 
 # Start flask server
 app.run(host=WEBHOOK_LISTEN,
         port=APP_PORT,
-        ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV),
         debug=True)
