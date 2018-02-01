@@ -5,8 +5,12 @@ import os
 import json
 import telebot
 import logging
+from dotenv import load_dotenv
+from os.path import join, dirname
 
 # Bot config
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 bot = telebot.TeleBot(os.environ['BOT_TOKEN'])
 import botmodules
 
