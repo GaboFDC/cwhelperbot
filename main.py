@@ -3,6 +3,7 @@
 
 from flask import Flask, render_template, request
 from config import *
+from time import sleep
 
 app = Flask(__name__)
 # app.config.from_pyfile('flaskapp.cfg')
@@ -27,6 +28,7 @@ def webhook():
 
 # Remove webhook, it fails sometimes the set if there is a previous webhook
 bot.remove_webhook()
+sleep(1) # Avoid timeout
 
 # Set webhook
 bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
