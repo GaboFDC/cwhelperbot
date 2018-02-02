@@ -12,6 +12,7 @@ from os.path import join, dirname
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 bot = telebot.TeleBot(os.environ['BOT_TOKEN'])
+responses = json.load(open('data/responses.json', 'r'))
 import botmodules
 
 if os.environ['LOG_ENABLED'] == "1":
