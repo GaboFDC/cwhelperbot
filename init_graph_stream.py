@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+import os
 import sys
 import plotly.plotly as py
 import plotly.tools as tls
+from dotenv import load_dotenv
 from plotly.graph_objs import *
+from os.path import join, dirname
 
 if sys.argv[1] == "deals":
     offset = 0
