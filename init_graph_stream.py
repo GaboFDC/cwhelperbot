@@ -28,6 +28,10 @@ if user_allow != "Y":
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
+# Ploty conf
+tls.set_credentials_file(
+    username=os.environ['PLOTLY_USER'], api_key=os.environ['PLOTLY_PASS'])
+tls.set_config_file(world_readable=True, sharing='public')
 tls.set_credentials_file(stream_ids=os.environ['PLOTLY_STREAM_IDS'].split(','))
 stream_ids = tls.get_credentials_file()['stream_ids']
 
