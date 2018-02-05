@@ -1,3 +1,6 @@
 pyTelegramBotAPI
 flask
 python-dotenv
+pika
+pymongo
+plotly
