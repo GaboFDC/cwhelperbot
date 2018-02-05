@@ -21,6 +21,11 @@ user_allow = input("Continue?")
 if user_allow != "Y":
     exit()
 
+# ENV
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+tls.set_credentials_file(stream_ids=os.environ['PLOTLY_STREAM_IDS'].split(','))
 stream_ids = tls.get_credentials_file()['stream_ids']
 
 scatter_list = []
