@@ -46,6 +46,8 @@ s12 = py.Stream(stream_ids[12])
 s13 = py.Stream(stream_ids[13])
 s14 = py.Stream(stream_ids[14])
 s15 = py.Stream(stream_ids[15])
+s16 = py.Stream(stream_ids[16])
+s17 = py.Stream(stream_ids[17])
 s0.open()
 s1.open()
 s2.open()
@@ -62,6 +64,8 @@ s12.open()
 s13.open()
 s14.open()
 s15.open()
+s16.open()
+s17.open()
 
 # Chat Wars API (RabbitMQ)
 parameters = pika.URLParameters(
@@ -107,8 +111,12 @@ def deal_send_to_stream(body):
         s13.write(dict(x=datetime.datetime.now(), y=deal['price']))
     elif deal['item'] == 'Coke':
         s14.write(dict(x=datetime.datetime.now(), y=deal['price']))
-    elif deal['item'] == 'Pouch':
+    elif deal['item'] == 'Pouch of gold':
         s15.write(dict(x=datetime.datetime.now(), y=deal['price']))
+    elif deal['item'] == 'Torch':
+        s16.write(dict(x=datetime.datetime.now(), y=deal['price']))
+    elif deal['item'] == 'Wrapping':
+        s17.write(dict(x=datetime.datetime.now(), y=deal['price']))
     else:
         print("\033[91m Couldn't find item type {} \033[0m".format(deal))
 

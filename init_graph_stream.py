@@ -9,7 +9,7 @@ from plotly.graph_objs import *
 if sys.argv[1] == "deals":
     offset = 0
 elif sys.argv[1] == "offers":
-    offset = 16
+    offset = 18
 else:
     print("Wrong argument")
     exit()

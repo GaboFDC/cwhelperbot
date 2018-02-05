@@ -31,22 +31,24 @@ tls.set_credentials_file(
 tls.set_config_file(world_readable=True, sharing='public')
 tls.set_credentials_file(stream_ids=os.environ['PLOTLY_STREAM_IDS'].split(','))
 stream_ids = tls.get_credentials_file()['stream_ids']
-s0 = py.Stream(stream_ids[16])
-s1 = py.Stream(stream_ids[17])
-s2 = py.Stream(stream_ids[18])
-s3 = py.Stream(stream_ids[19])
-s4 = py.Stream(stream_ids[20])
-s5 = py.Stream(stream_ids[21])
-s6 = py.Stream(stream_ids[22])
-s7 = py.Stream(stream_ids[23])
-s8 = py.Stream(stream_ids[24])
-s9 = py.Stream(stream_ids[25])
-s10 = py.Stream(stream_ids[26])
-s11 = py.Stream(stream_ids[27])
-s12 = py.Stream(stream_ids[28])
-s13 = py.Stream(stream_ids[29])
-s14 = py.Stream(stream_ids[30])
-s15 = py.Stream(stream_ids[31])
+s0 = py.Stream(stream_ids[18])
+s1 = py.Stream(stream_ids[19])
+s2 = py.Stream(stream_ids[20])
+s3 = py.Stream(stream_ids[21])
+s4 = py.Stream(stream_ids[22])
+s5 = py.Stream(stream_ids[23])
+s6 = py.Stream(stream_ids[24])
+s7 = py.Stream(stream_ids[25])
+s8 = py.Stream(stream_ids[26])
+s9 = py.Stream(stream_ids[27])
+s10 = py.Stream(stream_ids[28])
+s11 = py.Stream(stream_ids[29])
+s12 = py.Stream(stream_ids[30])
+s13 = py.Stream(stream_ids[31])
+s14 = py.Stream(stream_ids[32])
+s15 = py.Stream(stream_ids[33])
+s16 = py.Stream(stream_ids[34])
+s17 = py.Stream(stream_ids[35])
 s0.open()
 s1.open()
 s2.open()
@@ -63,6 +65,8 @@ s12.open()
 s13.open()
 s14.open()
 s15.open()
+s16.open()
+s17.open()
 
 
 # Chat Wars API (RabbitMQ)
@@ -114,8 +118,12 @@ def offer_send_to_stream(body):
             s13.write(dict(x=datetime.datetime.now(), y=offer['price']))
         elif offer['item'] == 'Coke':
             s14.write(dict(x=datetime.datetime.now(), y=offer['price']))
-        elif offer['item'] == 'Pouch':
+        elif offer['item'] == 'Pouch of gold':
             s15.write(dict(x=datetime.datetime.now(), y=offer['price']))
+        elif offer['item'] == 'Torch':
+            s16.write(dict(x=datetime.datetime.now(), y=deal['price']))
+        elif offer['item'] == 'Wrapping':
+            s17.write(dict(x=datetime.datetime.now(), y=deal['price']))
         else:
             print("\033[91m Couldn't find item type {} \033[0m".format(offer))
 
