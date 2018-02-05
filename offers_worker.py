@@ -13,15 +13,17 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from os.path import join, dirname
 
-# DB
-client = MongoClient('localhost', 32769)
-db = client['cwhelper']
-offers_collection = db.offers
-offers_collection = db.offers
-
 # ENV
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+
+# DB
+if os.environ['USE_DB'] == 1:
+    print("Using mongo db")
+    client = MongoClient('localhost', 32769)
+    db = client['cwhelper']
+    offers_collection = db.offers
+    offers_collection = db.offers
 
 # Ploty conf
 tls.set_credentials_file(
@@ -76,7 +78,8 @@ def offer_send_to_stream(body):
     offer = json.loads(body)
     if offer['price'] < 500:
         offer['timestamp'] = datetime.datetime.now().timestamp()
-        offers_collection.insert_one(offer)
+        if os.environ['USE_DB'] == 1:
+            offers_collection.insert_one(offer)
         if offer['item'] == 'Steel':
             s10.write(dict(x=datetime.datetime.now(), y=offer['price']))
             if offer['price'] < 11:
