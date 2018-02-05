@@ -121,9 +121,9 @@ def offer_send_to_stream(body):
         elif offer['item'] == 'Pouch of gold':
             s15.write(dict(x=datetime.datetime.now(), y=offer['price']))
         elif offer['item'] == 'Torch':
-            s16.write(dict(x=datetime.datetime.now(), y=deal['price']))
+            s16.write(dict(x=datetime.datetime.now(), y=offer['price']))
         elif offer['item'] == 'Wrapping':
-            s17.write(dict(x=datetime.datetime.now(), y=deal['price']))
+            s17.write(dict(x=datetime.datetime.now(), y=offer['price']))
         else:
             print("\033[91m Couldn't find item type {} \033[0m".format(offer))
 
