@@ -1,3 +1,3 @@
 web: python main.py
-worker: python deals_worker.py
-worker: python offers_worker.py
+deal_work: python deals_worker.py
+off_work: python offers_worker.py
