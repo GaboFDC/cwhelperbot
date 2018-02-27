@@ -86,11 +86,11 @@ def offer_send_to_stream(body):
             offers_collection.insert_one(offer)
         if offer['item'] == 'Steel':
             s10.write(dict(x=datetime.datetime.now(), y=offer['price']))
-            if offer['price'] < 11:
+            if offer['price'] < 20:
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Thread':
             s0.write(dict(x=datetime.datetime.now(), y=offer['price']))
-            if offer['price'] < 9:
+            if offer['price'] < 4:
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Stick':
             s1.write(dict(x=datetime.datetime.now(), y=offer['price']))
