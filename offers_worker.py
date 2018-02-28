@@ -90,7 +90,7 @@ def offer_send_to_stream(body):
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Thread':
             s0.write(dict(x=datetime.datetime.now(), y=offer['price']))
-            if offer['price'] < 4:
+            if offer['price'] < 3:
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Stick':
             s1.write(dict(x=datetime.datetime.now(), y=offer['price']))
