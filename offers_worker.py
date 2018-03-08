@@ -109,12 +109,12 @@ def offer_send_to_stream(body):
         elif offer['item'] == 'Magic Stone':
             s9.write(dict(x=datetime.datetime.now(), y=offer['price']))
         elif offer['item'] == 'Leather':
-            if offer['price'] < 11:
+            if offer['price'] < 10:
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Thread':
             s11.write(dict(x=datetime.datetime.now(), y=offer['price']))
         elif offer['item'] == 'Bone powder':
-            if offer['price'] < 11:
+            if offer['price'] < 10:
                 bot.send_message(os.environ['TG_ADMIN_UID'], "OFFER!\n{} - price: {}".format(offer['item'], offer['price']))
         elif offer['item'] == 'Thread':
             s12.write(dict(x=datetime.datetime.now(), y=offer['price']))
